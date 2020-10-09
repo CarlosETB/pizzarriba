@@ -5,6 +5,7 @@ import { Route, Switch, BrowserRouter } from "react-router-dom";
 
 // Pages
 import Home from "pages/Home";
+import SelectPasta from "pages/Select/Pasta";
 import PageError from "pages/PageError";
 
 const Routes = () => {
@@ -12,6 +13,7 @@ const Routes = () => {
     <BrowserRouter>
       <Switch>
         <Route component={Home} path="/" exact />
+        <Route component={SelectPasta} path="/selecionar/massa" exact />
         <Route component={PageError} path="/" />
       </Switch>
     </BrowserRouter>

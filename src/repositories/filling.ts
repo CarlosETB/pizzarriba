@@ -1,7 +1,7 @@
-import { URL_PASTAS } from "config";
+import { URL_FILLINGS } from "config";
 
 function getAll() {
-  return fetch(URL_PASTAS).then(async (res) => {
+  return fetch(URL_FILLINGS).then(async (res) => {
     if (res.ok) {
       const response = await res.json();
       return response;

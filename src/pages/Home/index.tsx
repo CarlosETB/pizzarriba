@@ -1,17 +1,57 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 // Components
 import PageDefault from "components/PageDefault";
-import Completed from "components/Completed";
+import PizzaItem from "components/PizzaItem";
 import { Title } from "components/Text";
 
+// Shared
+import { Pastas, Fillings, Sizes } from "shared/interface";
+
+// Repositories
+import {
+  sizeRepository,
+  pastaRepository,
+  fillingRepository,
+} from "repositories";
+
 const Home = () => {
-  useEffect(() => {}, []);
+  const [sizes, setSizes] = useState<Sizes>({});
+  const [pastas, setPastas] = useState<Pastas>({});
+  const [fillings, setFillings] = useState<Fillings>({});
+
+  useEffect(() => {
+    sizeRepository.getAll().then((res) => {
+      const sizeRecommended = res.find((res: Sizes) => {
+        return res.recommendation === true;
+      });
+
+      setSizes(sizeRecommended);
+    });
+
+    pastaRepository.getAll().then((res) => {
+      const pastaRecommended = res.find((res: Pastas) => {
+        return res.recommendation === true;
+      });
+
+      setPastas(pastaRecommended);
+    });
+
+    fillingRepository.getAll().then((res) => {
+      const fillingRecommended = res.find((res: Fillings) => {
+        return res.recommendation === true;
+      });
+      setFillings(fillingRecommended);
+    });
+  }, []);
 
   return (
     <PageDefault>
       <Title>Pizza do dia</Title>
-      {/* <Completed data={} /> */}
+
+      <PizzaItem prefix="tamanho" data={sizes} />
+      <PizzaItem prefix="massa" data={pastas} />
+      <PizzaItem prefix="recheio" data={fillings} />
     </PageDefault>
   );
 };

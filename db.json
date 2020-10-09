@@ -5,35 +5,40 @@
       "title": "Gigante",
       "size": 45,
       "slices": 16,
-      "price": 30
+      "price": 30,
+      "recommendation": true
     },
     {
       "id": 2,
       "title": "Família ",
       "size": 40,
       "slices": 12,
-      "price": 25
+      "price": 25,
+      "recommendation": false
     },
     {
       "id": 3,
       "title": "Grande ",
       "size": 35,
       "slices": 10,
-      "price": 20
+      "price": 20,
+      "recommendation": false
     },
     {
       "id": 4,
       "title": "Média ",
       "size": 30,
       "slices": 8,
-      "price": 15
+      "price": 15,
+      "recommendation": false
     },
     {
       "id": 1,
       "title": "Pequena ",
       "size": 25,
       "slices": 6,
-      "price": 10
+      "price": 10,
+      "recommendation": false
     }
   ],
   "pastas": [
@@ -41,81 +46,94 @@
       "id": 1,
       "title": "nova-iorquina",
       "description": "Frequentemente vendida em fatias grandes e largas, a pizza ao estilo de Nova York tem uma massa mais grossa e é levemente crocante por fora. Dessa forma, são consumidas sem talheres. É bastante comum que as fatias sejam dobradas, facilitando o consumo por parte dos clientes. Normalmente são assadas em temperaturas mais baixas, em fornos a gás.",
-      "price": 28
+      "price": 28,
+      "recommendation": true
     },
     {
       "id": 2,
       "title": "siciliana",
       "description": "A pizza siciliana é conhecida por sua massa grossa em forma de retângulo, geralmente com mais de um centímetro de espessura. A saber, pode ser feita em qualquer formato de assadeira untada com azeite, o que a deixa bem crocante no fundo.  Se você gosta da pizza tradicional da Sicília, a farinha de rosca fica por cima dos ingredientes. Além disso, ainda existe a opção de ralar um queijo para finalizar o perfil de sabor. Curiosidade: a pizza com massa estilo siciliana não usa muçarela porque o leite de vaca não está disponível na ilha.",
-      "price": 26
+      "price": 26,
+      "recommendation": false
     },
     {
       "id": 3,
       "title": "napolitana ",
       "description": "O modo napolitano de preparo é considerado um Patrimônio Cultural Imaterial da Humanidade pela Unesco. Acima de tudo,  a massa napolitana deve atender a um conjunto muito específico. Seu sabor e textura únicos, precisam ser assados em um forno a lenha com cúpula. Além disso,  a massa deve ser amassada à mão, com no máximo 35 centímetros de diâmetro e no máximo um terço de centímetro de espessura. Os estilos clássicos incluem a Margherita e a Marinara. E devido ao sabor e textura é a opção perfeita para quem quer saborear uma pizza italiana autêntica.",
-      "price": 24
+      "price": 24,
+      "recommendation": false
     }
   ],
-  "filling": [
+  "fillings": [
     {
       "id": 1,
       "title": "Calabresa",
       "description": "Uma pizza simples, mas que conquistou uma legião de fãs em todo o mundo. Está presente em mais de 30% dos pedidos.",
-      "price": 35
+      "price": 35,
+      "recommendation": true
     },
     {
       "id": 2,
       "title": "Portuguesa",
       "description": "Ovos, cebola, azeitona, ervilha, queijo e presunto dão sabor a segunda pizza mais queridinha dos brasileiros.",
-      "price": 35
+      "price": 35,
+      "recommendation": false
     },
     {
       "id": 3,
       "title": "Marguerita",
       "description": "Sabor ícone da Itália que leva apenas molho, muçarela, tomate e manjericão. É uma ótima opção para quem não come carne.",
-      "price": 35
+      "price": 35,
+      "recommendation": false
     },
     {
       "id": 4,
       "title": "Frango com catupiry",
       "description": "A mistura de proteína e cremosidade que deu muito certo.",
-      "price": 35
+      "price": 35,
+      "recommendation": false
     },
     {
       "id": 5,
       "title": "Muçarela",
       "description": "Simples e perfeita como tem que ser. A número 1 entre os paulistanos.",
-      "price": 35
+      "price": 35,
+      "recommendation": false
     },
     {
       "id": 6,
       "title": "Napolitana",
       "description": "Um sabor genuinamente italiano que não pode faltar na sua pizzaria.",
-      "price": 35
+      "price": 35,
+      "recommendation": false
     },
     {
       "id": 7,
       "title": "Brigadeiro",
       "description": "O clássico doce brasileiro que cai bem de qualquer jeito e a qualquer hora. Faz o maior sucesso entre a criançada.",
-      "price": 35
+      "price": 35,
+      "recommendation": false
     },
     {
       "id": 8,
       "title": "Romeu e Julieta",
       "description": "A combinação mineira de queijo branco e goiabada faz sucesso em todo o país. Diferentes versões recebem queijos suaves, como brie, ricota e muçarela de búfala.",
-      "price": 35
+      "price": 35,
+      "recommendation": false
     },
     {
       "id": 9,
       "title": "Creme de avelã com frutas",
       "description": "A mistura de frutas ao famoso creme de avelã é uma combinação mais que perfeita.",
-      "price": 35
+      "price": 35,
+      "recommendation": false
     },
     {
       "id": 10,
       "title": "Califórnia",
       "description": "O sabor agridoce desta versão tropical que combina queijo e frutas, como pêssego, goiaba, figo e abacaxi, conquista até mesmo quem está de dieta.",
-      "price": 35
+      "price": 35,
+      "recommendation": false
     }
   ]
 }
