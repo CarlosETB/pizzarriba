@@ -1,7 +1,7 @@
-import { URL_CATEGORIES, URL_CATEGORIESBYVIDEOS } from "config";
+import { URL } from "config";
 
 function getAll() {
-  return fetch(URL_CATEGORIES).then(async (res) => {
+  return fetch(URL).then(async (res) => {
     if (res.ok) {
       const response = await res.json();
       return response;

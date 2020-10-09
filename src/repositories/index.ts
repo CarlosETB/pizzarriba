@@ -1,1 +1,1 @@
-export { default as videoRepository } from "./videos";
+export { default as pastaRepository } from "./pasta";
