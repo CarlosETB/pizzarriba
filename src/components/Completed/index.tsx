@@ -12,7 +12,9 @@ interface LayoutProps {
 }
 
 const Completed: React.FC<LayoutProps> = (props) => {
-  const { sizesID, pastasID, fillingID } = props;
+  const {
+    data: { sizesID, pastasID, fillingID },
+  } = props;
 
   useEffect(() => {}, []);
 
