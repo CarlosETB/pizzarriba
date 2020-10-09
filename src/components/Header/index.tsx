@@ -3,7 +3,8 @@ import React from "react";
 // Native
 import { Link } from "react-router-dom";
 
-import Button from "components/Button";
+// Components
+import { Button } from "components/Button";
 
 // Shared
 import { Logo } from "shared/images";
