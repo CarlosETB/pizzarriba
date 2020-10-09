@@ -14,40 +14,40 @@ import PizzaItem from "components/PizzaItem";
 import { Title } from "components/Text";
 
 // Shared
-import { Pastas } from "shared/interface";
+import { Sizes } from "shared/interface";
 
 // Store
 import OrderData, { OrderDataState } from "store/context";
 
 // Repositories
-import { pastaRepository } from "repositories";
+import { sizeRepository } from "repositories";
 
-const SelectPasta = () => {
-  const [pastas, setPastas] = useState<Pastas[]>([]);
-  const [pastaDetail, setPastaDetail] = useState<Pastas>();
+const SelectSize = () => {
+  const [sizes, setSizes] = useState<Sizes[]>([]);
+  const [sizeDetail, setSizeDetail] = useState<Sizes>();
 
-  const pastasTitles = pastas.map(({ title }) => title);
+  const sizesTitles = sizes.map(({ title }) => title);
 
   useEffect(() => {
-    pastaRepository.getAll().then((res) => {
-      setPastas(res);
+    sizeRepository.getAll().then((res) => {
+      setSizes(res);
     });
   }, []);
 
   const handleInputChange = async (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
 
-    const pastaId = pastas.find((res: Pastas) => {
+    const sizeId = sizes.find((res: Sizes) => {
       return res.title === value;
     });
 
-    setPastaDetail(pastaId);
+    setSizeDetail(sizeId);
   };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    console.log("Data", pastaDetail?.id);
+    console.log("Data", sizeDetail?.id);
   };
 
   return (
@@ -56,14 +56,14 @@ const SelectPasta = () => {
         <Title>Selecione a massa</Title>
 
         <FormField
-          name="pastas"
-          label="Massa"
-          value={pastaDetail?.title}
-          suggestions={pastasTitles}
+          name="sizes"
+          label="Tamanhos"
+          value={sizeDetail?.title}
+          suggestions={sizesTitles}
           onChange={handleInputChange}
         />
 
-        {pastaDetail && <PizzaItem data={pastaDetail} />}
+        {sizeDetail && <PizzaItem data={sizeDetail} />}
 
         <ButtonNext>Próximo</ButtonNext>
       </form>
@@ -71,4 +71,4 @@ const SelectPasta = () => {
   );
 };
 
-export default SelectPasta;
+export default SelectSize;

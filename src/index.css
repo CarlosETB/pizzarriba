@@ -13,6 +13,12 @@ a {
   color: inherit;
 }
 
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 :root {
   --primary: #b93530;
   --secondary: #1f964e;

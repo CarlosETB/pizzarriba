@@ -33,15 +33,14 @@ const FormField: React.FC<LayoutProps> = (props) => {
         <LabelText>{`${label} :`}</LabelText>
 
         <datalist id={`suggestionFor_${id}`}>
-          {suggestions &&
-            suggestions.map((suggestion) => (
-              <option
-                value={suggestion}
-                key={`suggestionFor_${id}_option_${suggestion}`}
-              >
-                {suggestion}
-              </option>
-            ))}
+          {suggestions?.map((suggestion) => (
+            <option
+              value={suggestion}
+              key={`suggestionFor_${id}_option_${suggestion}`}
+            >
+              {suggestion}
+            </option>
+          ))}
         </datalist>
       </Label>
     </FormFieldWrapper>

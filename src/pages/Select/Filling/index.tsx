@@ -14,40 +14,38 @@ import PizzaItem from "components/PizzaItem";
 import { Title } from "components/Text";
 
 // Shared
-import { Pastas } from "shared/interface";
-
-// Store
-import OrderData, { OrderDataState } from "store/context";
+import { Fillings } from "shared/interface";
 
 // Repositories
-import { pastaRepository } from "repositories";
+import { fillingRepository } from "repositories";
 
-const SelectPasta = () => {
-  const [pastas, setPastas] = useState<Pastas[]>([]);
-  const [pastaDetail, setPastaDetail] = useState<Pastas>();
+const SelectFilling = () => {
+  const [fillings, setFillings] = useState<Fillings[]>([]);
+  const [fillingDetail, setFillingDetail] = useState<Fillings>();
 
-  const pastasTitles = pastas.map(({ title }) => title);
+  const fillingsTitles = fillings.map(({ title }) => title);
 
   useEffect(() => {
-    pastaRepository.getAll().then((res) => {
-      setPastas(res);
+    fillingRepository.getAll().then((res) => {
+      setFillings(res);
     });
   }, []);
 
   const handleInputChange = async (event: ChangeEvent<HTMLInputElement>) => {
-    const { value } = event.target;
+    const { name, value } = event.target;
 
-    const pastaId = pastas.find((res: Pastas) => {
+    const fillingId = fillings.find((res: Fillings) => {
       return res.title === value;
     });
 
-    setPastaDetail(pastaId);
+    setFillingDetail({ [name]: fillingId });
+    console.log("Data", { [name]: fillingId });
   };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    console.log("Data", pastaDetail?.id);
+    console.log("Data", fillingDetail?.id);
   };
 
   return (
@@ -56,14 +54,14 @@ const SelectPasta = () => {
         <Title>Selecione a massa</Title>
 
         <FormField
-          name="pastas"
-          label="Massa"
-          value={pastaDetail?.title}
-          suggestions={pastasTitles}
+          label="Pedaços"
+          name="fillings"
+          value={fillingDetail?.title}
+          suggestions={fillingsTitles}
           onChange={handleInputChange}
         />
 
-        {pastaDetail && <PizzaItem data={pastaDetail} />}
+        {fillingDetail && <PizzaItem data={fillingDetail} />}
 
         <ButtonNext>Próximo</ButtonNext>
       </form>
@@ -71,4 +69,4 @@ const SelectPasta = () => {
   );
 };
 
-export default SelectPasta;
+export default SelectFilling;

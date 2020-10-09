@@ -9,6 +9,10 @@ export const Container = styled.div`
   padding: 0 10px;
   align-items: center;
   flex-direction: row;
+  @media (max-width: 800px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 export const Column = styled.div`
@@ -17,6 +21,9 @@ export const Column = styled.div`
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
+  @media (max-width: 800px) {
+    margin: 10px 0;
+  }
 `;
 
 export const Prefix = styled(TitleComponent)`
