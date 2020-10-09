@@ -39,7 +39,7 @@ deve informar que o **usuário recebeu pontos de benefícios**.
 
 ### Requisitos
 
-- O formulário deve ser mostrado em passos distintos (uma tela por passo: passo de escolher massa, passo de escolher tamanho, passo de escolher recheio...)
+- O formulário deve ser mostrado em passos distintos ( uma tela por passo: passo de escolher massa, passo de escolher tamanho, passo de escolher recheio... )
 - O formulário deve ter pelo menos 3 passos
 - Dados referente as pizzas devem vir de um backend
 - A recomendação deve vir de um backend
@@ -72,6 +72,9 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - **[JavaScript](https://www.javascript.com/)**
 - **[TypeScript](https://www.typescriptlang.org/)**
 - **[React](https://reactjs.org/)**
+- **[Styled Components](https://styled-components.com/)**
+- **[Json Server](https://github.com/typicode/json-server/)**
+- **[Concurrently](https://github.com/kimmobrunfeldt/concurrently)**
 
 \* Veja o arquivo <kbd>[package.json](./package.json)</kbd>
 
