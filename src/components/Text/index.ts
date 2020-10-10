@@ -1,1 +1,1 @@
-export { Title, TotalValue } from "./styles";
+export { Title, TotalValue, Recommendation } from "./styles";
