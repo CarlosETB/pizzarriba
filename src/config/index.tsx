@@ -1,6 +1,6 @@
 const URL = window.location.hostname.includes("localhost")
   ? "http://localhost:8080"
-  : "http://carlostonholi-pizzarriba";
+  : "http://carlostonholi-pizzarriba.herokuapp.com";
 
 const URL_SIZES = `${URL}/sizes`;
 const URL_PASTAS = `${URL}/pastas`;
