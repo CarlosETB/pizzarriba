@@ -35,7 +35,7 @@ const SelectFilling = () => {
   const fillingsTitles = fillings.map(({ title }) => title);
 
   useEffect(() => {
-    fillingRepository.getAll().then((res) => {
+    fillingRepository.getAll().then((res: Fillings[]) => {
       setFillings(res);
     });
   }, []);
@@ -47,8 +47,6 @@ const SelectFilling = () => {
       return res.title === value;
     });
 
-    console.log("dede", fillingDetail?.title);
-
     setFillingDetail(fillingID);
   };
 
@@ -56,6 +54,9 @@ const SelectFilling = () => {
     event.preventDefault();
 
     if (fillingDetail !== undefined) {
+      fillingDetail?.recommendation &&
+        alert("Recomendação do dia, você acaba de receber pontos de benefício");
+
       setOrder({ ...order, [Number("fillings")]: fillingDetail?.id });
       history.push("/finalizar");
     } else alert("Selecione uma opção");
@@ -65,7 +66,7 @@ const SelectFilling = () => {
     <PageDefault>
       <form onSubmit={handleSubmit}>
         <Title>
-          Selecione o tamanho
+          Selecione o recheio
           {fillingDetail?.recommendation && (
             <Recommendation>Recomendação do dia</Recommendation>
           )}

@@ -47,8 +47,6 @@ const SelectSize = () => {
       return res.title === value;
     });
 
-    console.log("dede", sizeDetail?.title);
-
     setSizeDetail(sizeID);
   };
 

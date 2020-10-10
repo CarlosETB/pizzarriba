@@ -26,11 +26,11 @@ const Home = () => {
 
   useEffect(() => {
     sizeRepository.getAll().then((res) => {
-      const sizeRecommended = res.find((res: Sizes) => {
+      const pastaRecommended = res.find((res: Sizes) => {
         return res.recommendation === true;
       });
 
-      setSizes(sizeRecommended);
+      setSizes(pastaRecommended);
     });
 
     pastaRepository.getAll().then((res) => {

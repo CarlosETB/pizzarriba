@@ -35,7 +35,7 @@ const SelectPasta = () => {
   const pastasTitles = pastas.map(({ title }) => title);
 
   useEffect(() => {
-    pastaRepository.getAll().then((res) => {
+    pastaRepository.getAll().then((res: Pastas[]) => {
       setPastas(res);
     });
   }, []);
