@@ -1,3 +1,3 @@
-export type { Pastas } from "./pastas";
-export type { Sizes } from "./sizes";
-export type { Fillings } from "./fillings";
+export * from "./pastas";
+export * from "./sizes";
+export * from "./fillings";
