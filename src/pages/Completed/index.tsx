@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 // Components
 import { Title, TotalValue } from "components/Text";
@@ -12,6 +12,9 @@ import { useMoneyFormat } from "hooks";
 // Shared
 import { Pastas, Fillings, Sizes } from "shared/interface";
 
+// Store
+import { OrderContext } from "store/context";
+
 // Repositories
 import {
   sizeRepository,
@@ -19,39 +22,37 @@ import {
   fillingRepository,
 } from "repositories";
 
-const Home = () => {
+const Completed = () => {
+  const { order, setOrder } = useContext(OrderContext);
+
   const [sizes, setSizes] = useState<Sizes>({});
   const [pastas, setPastas] = useState<Pastas>({});
   const [fillings, setFillings] = useState<Fillings>({});
 
   useEffect(() => {
     sizeRepository.getAll().then((res) => {
-      const sizeRecommended = res.find((res: Sizes) => {
-        return res.recommendation === true;
+      const sizeSelected = res.find((res: Sizes) => {
+        return res.id === order["sizes"];
       });
-
-      setSizes(sizeRecommended);
+      setSizes(sizeSelected);
     });
-
     pastaRepository.getAll().then((res) => {
-      const pastaRecommended = res.find((res: Pastas) => {
-        return res.recommendation === true;
+      const pastaSelected = res.find((res: Pastas) => {
+        return res.id === order["pastas"];
       });
-
-      setPastas(pastaRecommended);
+      setPastas(pastaSelected);
     });
-
     fillingRepository.getAll().then((res) => {
-      const fillingRecommended = res.find((res: Fillings) => {
-        return res.recommendation === true;
+      const fillingSelected = res.find((res: Fillings) => {
+        return res.id === order["fillings"];
       });
-      setFillings(fillingRecommended);
+      setFillings(fillingSelected);
     });
   }, []);
 
   return (
     <PageDefault>
-      <Title>Pizza do dia</Title>
+      <Title>Seu pedido</Title>
 
       <PizzaItem prefix="tamanho" data={sizes} />
       <PizzaItem prefix="massa" data={pastas} />
@@ -68,4 +69,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Completed;

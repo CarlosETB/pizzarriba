@@ -1,9 +1,10 @@
 import React from "react";
 
 // Native
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
-import Button from "components/Button";
+// Components
+import { Button } from "components/Button";
 
 // Shared
 import { Logo } from "shared/images";
@@ -12,13 +13,19 @@ import { Logo } from "shared/images";
 import { Container, Image } from "./styles";
 
 const Header = () => {
+  const history = useHistory();
+
+  const handleCreate = async () => {
+    history.push("/selecionar/massa");
+  };
+
   return (
     <Container>
       <Link to="/">
         <Image src={Logo}></Image>
       </Link>
 
-      <Button>Criar Pizza</Button>
+      <Button onClick={handleCreate}>Criar Pizza</Button>
     </Container>
   );
 };
