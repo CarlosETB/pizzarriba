@@ -60,7 +60,7 @@ deve informar que o **usuário recebeu pontos de benefícios**.
 Para iniciar o servidor
 
 ```sh
-    npm start
+    npm run dev
 ```
 
 <br />
