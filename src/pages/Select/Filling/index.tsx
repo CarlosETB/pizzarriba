@@ -56,7 +56,7 @@ const SelectFilling = () => {
     event.preventDefault();
 
     if (fillingDetail !== undefined) {
-      setOrder({ ...order, ["fillings"]: fillingDetail?.id });
+      setOrder({ ...order, [Number("fillings")]: fillingDetail?.id });
       history.push("/finalizar");
     } else alert("Selecione uma opção");
   };

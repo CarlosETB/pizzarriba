@@ -57,7 +57,7 @@ const SelectPasta = () => {
       pastaDetail?.recommendation &&
         alert("Recomendação do dia, você acaba de receber pontos de benefício");
 
-      setOrder({ ...order, ["pastas"]: pastaDetail?.id });
+      setOrder({ ...order, [Number("pastas")]: pastaDetail?.id });
       history.push("/selecionar/tamanho");
     } else alert("Selecione uma opção");
   };

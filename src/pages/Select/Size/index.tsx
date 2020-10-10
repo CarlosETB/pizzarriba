@@ -56,7 +56,7 @@ const SelectSize = () => {
     event.preventDefault();
 
     if (sizeDetail !== undefined) {
-      setOrder({ ...order, ["sizes"]: sizeDetail?.id });
+      setOrder({ ...order, [Number("sizes")]: sizeDetail?.id });
       history.push("/selecionar/recheio");
     } else alert("Selecione uma opção");
   };

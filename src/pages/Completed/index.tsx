@@ -36,19 +36,19 @@ const Completed = () => {
   useEffect(() => {
     sizeRepository.getAll().then((res) => {
       const sizeSelected = res.find((res: Sizes) => {
-        return res.id === order["sizes"];
+        return res.id === order[Number("sizes")];
       });
       setSizes(sizeSelected);
     });
     pastaRepository.getAll().then((res) => {
       const pastaSelected = res.find((res: Pastas) => {
-        return res.id === order["pastas"];
+        return res.id === order[Number("pastas")];
       });
       setPastas(pastaSelected);
     });
     fillingRepository.getAll().then((res) => {
       const fillingSelected = res.find((res: Fillings) => {
-        return res.id === order["fillings"];
+        return res.id === order[Number("fillings")];
       });
       setFillings(fillingSelected);
     });
