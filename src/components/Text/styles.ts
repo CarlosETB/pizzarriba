@@ -8,3 +8,10 @@ export const Title = styled.h1`
   text-transform: capitalize;
   justify-content: space-between;
 `;
+
+export const TotalValue = styled.span`
+  width: 100%;
+  font-size: 20px;
+  text-align: right;
+  padding: 10px 0;
+`;

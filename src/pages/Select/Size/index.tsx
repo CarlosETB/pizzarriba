@@ -6,6 +6,9 @@ import React, {
   useState,
 } from "react";
 
+// Native
+import { useHistory } from "react-router-dom";
+
 // Components
 import PageDefault from "components/PageDefault";
 import { ButtonNext } from "components/Button";
@@ -17,12 +20,15 @@ import { Title } from "components/Text";
 import { Sizes } from "shared/interface";
 
 // Store
-import OrderData, { OrderDataState } from "store/context";
+import { OrderContext } from "store/context";
 
 // Repositories
 import { sizeRepository } from "repositories";
 
 const SelectSize = () => {
+  const history = useHistory();
+
+  const { order, setOrder } = useContext(OrderContext);
   const [sizes, setSizes] = useState<Sizes[]>([]);
   const [sizeDetail, setSizeDetail] = useState<Sizes>();
 
@@ -37,27 +43,32 @@ const SelectSize = () => {
   const handleInputChange = async (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
 
-    const sizeId = sizes.find((res: Sizes) => {
+    const sizeID = sizes.find((res: Sizes) => {
       return res.title === value;
     });
 
-    setSizeDetail(sizeId);
+    console.log("dede", sizeDetail?.title);
+
+    setSizeDetail(sizeID);
   };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    console.log("Data", sizeDetail?.id);
+    if (sizeDetail !== undefined) {
+      setOrder({ ...order, ["sizes"]: sizeDetail?.id });
+      history.push("/selecionar/recheio");
+    } else alert("Selecione uma opção");
   };
 
   return (
     <PageDefault>
       <form onSubmit={handleSubmit}>
-        <Title>Selecione a massa</Title>
+        <Title>Selecione o tamanho</Title>
 
         <FormField
           name="sizes"
-          label="Tamanhos"
+          label="Tamanho"
           value={sizeDetail?.title}
           suggestions={sizesTitles}
           onChange={handleInputChange}

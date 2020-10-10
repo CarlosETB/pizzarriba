@@ -9,9 +9,7 @@ interface LayoutProps {
   children?: ReactNode;
 }
 
-export const OrderContext = createContext<Partial<ContextValue | undefined>>(
-  {}
-);
+export const OrderContext = createContext<Partial<ContextValue>>({});
 
 export function OrderProvider(props: LayoutProps) {
   const { children } = props;

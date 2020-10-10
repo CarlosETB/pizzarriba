@@ -6,6 +6,9 @@ import React, {
   useState,
 } from "react";
 
+// Native
+import { useHistory } from "react-router-dom";
+
 // Components
 import PageDefault from "components/PageDefault";
 import { ButtonNext } from "components/Button";
@@ -16,10 +19,16 @@ import { Title } from "components/Text";
 // Shared
 import { Fillings } from "shared/interface";
 
+// Store
+import { OrderContext } from "store/context";
+
 // Repositories
 import { fillingRepository } from "repositories";
 
 const SelectFilling = () => {
+  const history = useHistory();
+
+  const { order, setOrder } = useContext(OrderContext);
   const [fillings, setFillings] = useState<Fillings[]>([]);
   const [fillingDetail, setFillingDetail] = useState<Fillings>();
 
@@ -32,30 +41,34 @@ const SelectFilling = () => {
   }, []);
 
   const handleInputChange = async (event: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
+    const { value } = event.target;
 
-    const fillingId = fillings.find((res: Fillings) => {
+    const fillingID = fillings.find((res: Fillings) => {
       return res.title === value;
     });
 
-    setFillingDetail({ [name]: fillingId });
-    console.log("Data", { [name]: fillingId });
+    console.log("dede", fillingDetail?.title);
+
+    setFillingDetail(fillingID);
   };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    console.log("Data", fillingDetail?.id);
+    if (fillingDetail !== undefined) {
+      setOrder({ ...order, ["fillings"]: fillingDetail?.id });
+      history.push("/finalizar");
+    } else alert("Selecione uma opção");
   };
 
   return (
     <PageDefault>
       <form onSubmit={handleSubmit}>
-        <Title>Selecione a massa</Title>
+        <Title>Selecione o tamanho</Title>
 
         <FormField
-          label="Pedaços"
           name="fillings"
+          label="Recheio"
           value={fillingDetail?.title}
           suggestions={fillingsTitles}
           onChange={handleInputChange}

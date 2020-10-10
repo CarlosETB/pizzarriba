@@ -6,6 +6,9 @@ import React, {
   useState,
 } from "react";
 
+// Native
+import { useHistory } from "react-router-dom";
+
 // Components
 import PageDefault from "components/PageDefault";
 import { ButtonNext } from "components/Button";
@@ -17,12 +20,15 @@ import { Title } from "components/Text";
 import { Pastas } from "shared/interface";
 
 // Store
-import OrderData, { OrderDataState } from "store/context";
+import { OrderContext } from "store/context";
 
 // Repositories
 import { pastaRepository } from "repositories";
 
 const SelectPasta = () => {
+  const history = useHistory();
+
+  const { order, setOrder } = useContext(OrderContext);
   const [pastas, setPastas] = useState<Pastas[]>([]);
   const [pastaDetail, setPastaDetail] = useState<Pastas>();
 
@@ -41,13 +47,18 @@ const SelectPasta = () => {
       return res.title === value;
     });
 
+    console.log("dede", pastaDetail);
+
     setPastaDetail(pastaId);
   };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    console.log("Data", pastaDetail?.id);
+    if (pastaDetail !== undefined) {
+      setOrder({ ...order, ["pastas"]: pastaDetail?.id });
+      history.push("/selecionar/tamanho");
+    } else alert("Selecione uma opção");
   };
 
   return (

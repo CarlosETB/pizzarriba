@@ -22,7 +22,7 @@ export const LabelText = styled.span`
 `;
 
 interface InputProps {
-  value: any[];
+  value: string[];
 }
 
 export const Input = styled.input<InputProps>`
