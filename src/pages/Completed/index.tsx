@@ -1,5 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 
+// Native
+import { useTranslation } from "react-i18next";
+
 // Components
 import { Title, TotalValue } from "components/Text";
 import PageDefault from "components/PageDefault";
@@ -23,7 +26,8 @@ import {
 } from "repositories";
 
 const Completed = () => {
-  const { order, setOrder } = useContext(OrderContext);
+  const { t } = useTranslation(["Completed", "Default"]);
+  const { order } = useContext(OrderContext);
 
   const [sizes, setSizes] = useState<Sizes>({});
   const [pastas, setPastas] = useState<Pastas>({});
@@ -52,21 +56,17 @@ const Completed = () => {
 
   return (
     <PageDefault>
-      <Title>Seu pedido</Title>
+      <Title>{t("title")}</Title>
 
       <PizzaItem prefix="tamanho" data={sizes} />
       <PizzaItem prefix="massa" data={pastas} />
       <PizzaItem prefix="recheio" data={fillings} />
 
-      <TotalValue>
-        {`Valor total: ${useMoneyFormat(
-          Number(pastas?.price + sizes?.price + fillings?.price)
-        )}`}
-      </TotalValue>
+      <TotalValue>{`Valor total: ${useMoneyFormat(
+        Number(pastas?.price + sizes?.price + fillings?.price)
+      )}`}</TotalValue>
 
-      <ButtonNext onClick={() => alert("Pedido Finalizado")}>
-        Finalizar pedido
-      </ButtonNext>
+      <ButtonNext>{t("nextButton")}</ButtonNext>
     </PageDefault>
   );
 };

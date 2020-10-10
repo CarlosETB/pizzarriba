@@ -69,12 +69,15 @@ Para iniciar o servidor
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
+- **[React](https://pt-br.reactjs.org/)**
 - **[JavaScript](https://www.javascript.com/)**
 - **[TypeScript](https://www.typescriptlang.org/)**
-- **[React](https://reactjs.org/)**
 - **[Styled Components](https://styled-components.com/)**
+- **[React Router Dom](https://reactrouter.com/)**
 - **[Json Server](https://github.com/typicode/json-server/)**
 - **[Concurrently](https://github.com/kimmobrunfeldt/concurrently)**
+- **[i18next](https://www.i18next.com/)**
+- **[React i18next](https://www.i18next.com/)**
 
 \* Veja o arquivo <kbd>[package.json](./package.json)</kbd>
 
