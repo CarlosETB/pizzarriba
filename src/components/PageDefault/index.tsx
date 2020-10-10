@@ -2,6 +2,7 @@ import React, { ReactNode } from "react";
 
 // Components
 import Header from "components/Header";
+import Footer from "components/Footer";
 
 // Private
 import { Main } from "./styles";
@@ -17,6 +18,7 @@ const PageDefault: React.FC<LayoutProps> = (props) => {
     <>
       <Header />
       <Main>{children}</Main>
+      <Footer />
     </>
   );
 };
