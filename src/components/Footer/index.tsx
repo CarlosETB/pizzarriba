@@ -20,7 +20,7 @@ const Footer = () => {
       </Link>
       <Text>
         <a href="https://www.youtube.com/watch?v=jqpOAzmG1xs" target="_blank">
-          {t("linkText")}
+          Inspiração do projeto
         </a>
       </Text>
     </FooterBase>
