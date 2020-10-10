@@ -1,4 +1,4 @@
-interface Sizes {
+export interface Sizes {
   id?: number;
   title?: string;
   size?: number;
@@ -6,5 +6,3 @@ interface Sizes {
   price?: number;
   recommendation?: boolean;
 }
-
-export type { Sizes };
