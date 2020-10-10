@@ -63,7 +63,9 @@ const Home = () => {
         )}`}
       </TotalValue>
 
-      <ButtonNext>Finalizar pedido</ButtonNext>
+      <ButtonNext onClick={() => alert("Pedido Finalizado")}>
+        Finalizar pedido
+      </ButtonNext>
     </PageDefault>
   );
 };

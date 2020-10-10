@@ -10,11 +10,11 @@ import React, {
 import { useHistory } from "react-router-dom";
 
 // Components
+import { Title, Recommendation } from "components/Text";
 import PageDefault from "components/PageDefault";
 import { ButtonNext } from "components/Button";
 import FormField from "components/FormField";
 import PizzaItem from "components/PizzaItem";
-import { Title } from "components/Text";
 
 // Shared
 import { Fillings } from "shared/interface";
@@ -64,7 +64,12 @@ const SelectFilling = () => {
   return (
     <PageDefault>
       <form onSubmit={handleSubmit}>
-        <Title>Selecione o tamanho</Title>
+        <Title>
+          Selecione o tamanho
+          {fillingDetail?.recommendation && (
+            <Recommendation>Recomendação do dia</Recommendation>
+          )}
+        </Title>
 
         <FormField
           name="fillings"

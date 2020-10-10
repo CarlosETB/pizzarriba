@@ -10,11 +10,11 @@ import React, {
 import { useHistory } from "react-router-dom";
 
 // Components
+import { Title, Recommendation } from "components/Text";
 import PageDefault from "components/PageDefault";
 import { ButtonNext } from "components/Button";
 import FormField from "components/FormField";
 import PizzaItem from "components/PizzaItem";
-import { Title } from "components/Text";
 
 // Shared
 import { Pastas } from "shared/interface";
@@ -47,8 +47,6 @@ const SelectPasta = () => {
       return res.title === value;
     });
 
-    console.log("dede", pastaDetail);
-
     setPastaDetail(pastaId);
   };
 
@@ -56,6 +54,9 @@ const SelectPasta = () => {
     event.preventDefault();
 
     if (pastaDetail !== undefined) {
+      pastaDetail?.recommendation &&
+        alert("Recomendação do dia, você acaba de receber pontos de benefício");
+
       setOrder({ ...order, ["pastas"]: pastaDetail?.id });
       history.push("/selecionar/tamanho");
     } else alert("Selecione uma opção");
@@ -64,7 +65,12 @@ const SelectPasta = () => {
   return (
     <PageDefault>
       <form onSubmit={handleSubmit}>
-        <Title>Selecione a massa</Title>
+        <Title>
+          Selecione a massa
+          {pastaDetail?.recommendation && (
+            <Recommendation>Recomendação do dia</Recommendation>
+          )}
+        </Title>
 
         <FormField
           name="pastas"

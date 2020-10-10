@@ -37,9 +37,7 @@ const FormField: React.FC<LayoutProps> = (props) => {
             <option
               value={suggestion}
               key={`suggestionFor_${id}_option_${suggestion}`}
-            >
-              {suggestion}
-            </option>
+            />
           ))}
         </datalist>
       </Label>

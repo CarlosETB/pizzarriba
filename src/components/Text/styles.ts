@@ -9,9 +9,17 @@ export const Title = styled.h1`
   justify-content: space-between;
 `;
 
+export const Recommendation = styled.span`
+  font-size: 20px;
+  color: var(--white);
+  padding: 5px 10px;
+  border-radius: 10px;
+  background: var(--secondary);
+`;
+
 export const TotalValue = styled.span`
   width: 100%;
   font-size: 20px;
-  text-align: right;
   padding: 10px 0;
+  text-align: right;
 `;
