@@ -1,9 +1,9 @@
 import React, { ReactNode, createContext, useState, useContext } from "react";
 
-interface ContextValue {
-  order: any[];
-  setOrder: any[];
-}
+type ContextValue = {
+  order?: any[];
+  setOrder?: any;
+};
 
 interface LayoutProps {
   children?: ReactNode;

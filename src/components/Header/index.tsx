@@ -2,6 +2,7 @@ import React from "react";
 
 // Native
 import { Link, useHistory } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 // Components
 import { Button } from "components/Button";
@@ -14,6 +15,7 @@ import { Container, Image } from "./styles";
 
 const Header = () => {
   const history = useHistory();
+  const { t } = useTranslation("Header");
 
   const handleCreate = async () => {
     history.push("/selecionar/massa");
@@ -22,10 +24,10 @@ const Header = () => {
   return (
     <Container>
       <Link to="/">
-        <Image src={Logo}></Image>
+        <Image src={Logo} />
       </Link>
 
-      <Button onClick={handleCreate}>Criar Pizza</Button>
+      <Button onClick={handleCreate}>{t("button")}</Button>
     </Container>
   );
 };
