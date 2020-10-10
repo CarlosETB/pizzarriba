@@ -1,0 +1,9 @@
+{
+  "title": "Pizza do dia",
+  "button": "Finalizar pedido",
+  "alert": "Pedido Finalizado",
+  "filling": "recheio",
+  "pasta": "massa",
+  "size": "tamanho",
+  "total": "Valor total"
+}

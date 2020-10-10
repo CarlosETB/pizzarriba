@@ -66,7 +66,7 @@ const Completed = () => {
         Number(pastas?.price + sizes?.price + fillings?.price)
       )}`}</TotalValue>
 
-      <ButtonNext>{t("nextButton")}</ButtonNext>
+      <ButtonNext>Finalizar pedido</ButtonNext>
     </PageDefault>
   );
 };
